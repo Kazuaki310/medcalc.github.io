@@ -1,10 +1,10 @@
 <html>
 	<head>
-		<title>医学計算</title>
+		<title>Medical Calculation</title>
 		<style>
 			body{
 				max-width: 750px;
-				
+				margin: auto
 			}
 			ul, ol {
 				background: #dadada;/*灰色に*/
@@ -59,16 +59,6 @@
 			#site-box { width : 100px ; }
 			}
 		</style>
-		<script type="text/x-mathjax-config">
-			MathJax.Hub.Config({ 
-			tex2jax: {
-			inlineMath: [['$','$'], ['¥¥(','¥¥)']], 
-			displayMath: [['$$','$$'], ['¥¥[','¥¥]']], 
-			processEscapes: true 
-			}
-			}); 
-		</script>
-		<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 	</head>
 	<script type="text/javascript">
 		
@@ -92,15 +82,16 @@
 
 		<div class="box29">
 			<div class="box-title">浸透圧</div>
-		<p class="center">$予想浸透圧 = 2Na+¥frac{UN}{2.8}+¥frac{血糖値}{18}$</p>
+		<p class="center">予想浸透圧 = 2Na + UN/2.8 + 血糖値/18</p>
+
 		<form name="OP" style="border: 1px dotted #4169e1; padding: 10px; border-radius: 0px; margin: 0em 1em; background: ##000000;">
 			<span>・Na濃度</span><input type="text" name="firstValue" size="5" value=0> mEq/L<br>
 			<span>・UN</span><input type="text" name="secondValue" size="5" value=0> mg/dL<br>
 			<span>・血糖値</span><input type="text" name="thirdValue" size="5" value=0> mg/dL
 		</form>
-		<p class="right"><INPUT type="button" name="buttoncalc" onClick="OsmoticPressure()" value="計算"></p>
 
-				→ 予想浸透圧<input type="text" name="result" size="5" value=0> mOsm/kgH<sub>2</sub>O
+		<p class="right" style="margin-top:-45px; margin-bottom:15px"><INPUT type="button" name="buttoncalc" onClick="OsmoticPressure()" value="計算"></p>
+			<p align="center" style="background-color: #ffffff; padding: 7px;margin: 0em 15em"><input type="text" name="result" size="5" value=0> mOsm/kgH<sub>2</sub>O</p> <br>
 
 		
 		</div>
