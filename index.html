@@ -1,7 +1,10 @@
 <html>
 	<head>
-		<title>四則演算</title>
+		<title>医学計算</title>
 		<style>
+			body{
+				max-width: 750px;
+			}
 			ul, ol {
 				background: #dadada;/*灰色に*/
 				border-radius :8px;
@@ -47,7 +50,24 @@
 				display:inline-block;
 				width:7em;
 			}
+			.center{
+				text-align: center;
+			}
+			.right{
+				text-align: right;
+			#site-box { width : 100px ; }
+			}
 		</style>
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({ 
+			tex2jax: {
+			inlineMath: [['$','$'], ['¥¥(','¥¥)']], 
+			displayMath: [['$$','$$'], ['¥¥[','¥¥]']], 
+			processEscapes: true 
+			}
+			}); 
+		</script>
+		<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 	</head>
 	<script type="text/javascript">
 		
@@ -66,19 +86,21 @@
 			IW.femaleTVmin.value = Math.round(6*IW.femaleIW.value)
 			IW.femaleTVmax.value = Math.round(8*IW.femaleIW.value)
 				}
-
 			</script>
 <body>
 
 		<div class="box29">
 			<div class="box-title">浸透圧</div>
-			<form name="OP">
+		<p class="center">$予想浸透圧 = 2Na+¥frac{UN}{2.8}+¥frac{血糖値}{18}$</p>
+		<form name="OP" style="border: 1px dotted #4169e1; padding: 10px; border-radius: 0px; margin: 0em 1em; background: ##000000;">
 			<span>・Na濃度</span><input type="text" name="firstValue" size="5" value=0> mEq/L<br>
-				<span>・UN</span><input type="text" name="secondValue" size="5" value=0> mg/dL<br>
-				<span>・BS</span><input type="text" name="thirdValue" size="5" value=0> mg/dL<br>
+			<span>・UN</span><input type="text" name="secondValue" size="5" value=0> mg/dL<br>
+			<span>・血糖値</span><input type="text" name="thirdValue" size="5" value=0> mg/dL
+		</form>
+		<p class="right"><INPUT type="button" name="buttoncalc" onClick="OsmoticPressure()" value="計算"></p>
+
 				<span>→ 予想浸透圧</span><input type="text" name="result" size="5" value=0> mOsm/kgH<sub>2</sub>O
-								<INPUT type="button" name="buttoncalc" onClick="OsmoticPressure()" value="実行">
-			</form>
+
 		</div>
 		
 		<div class="box29">
@@ -87,7 +109,7 @@
 		<span>・身長</span><input type="text" name="firstValue" size="5" value=0> cm<br>
 		<span>→ 男性</span> 理想体重：<input type="text" name="maleIW" size="5" value=0> kg、一回換気量：<input type="text" name="maleTVmin" size="5" value=0> - <input type="text" name="maleTVmax" size="5" value=0> mL<br>
 		<span>→ 女性</span> 理想体重：<input type="text" name="femaleIW" size="5" value=0> kg、一回換気量：<input type="text" name="femaleTVmin" size="5" value=0> - <input type="text" name="femaleTVmax" size="5" value=0> mL
-		<INPUT type="button" name="buttoncalc" onClick="IdealWeight()" value="実行"><br>
+		<INPUT type="button" name="buttoncalc" onClick="IdealWeight()" value="計算"><br>
 		※ ARDS/ALIでは換気量は6mL/kgに設定すること
 		</form>
 		</div>
