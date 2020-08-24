@@ -62,13 +62,14 @@
 		</style>
 	</head>
 	<script type="text/javascript">
-		
+
+<!--浸透圧-->
 		function OsmoticPressure()
 		{
 			OP.result.value = Math.round(OP.firstValue.value*2 + OP.secondValue.value/2.8 + OP.thirdValue.value/18);
 			}
 
-		
+<!--理想体重・一回換気量-->
 		function IdealWeight()
 		{
 			IW.maleIW.value = Math.round(50 + (IW.firstValue.value-152.4)*0.91);
@@ -78,6 +79,13 @@
 			IW.femaleTVmin.value = Math.round(6*IW.femaleIW.value);
 			IW.femaleTVmax.value = Math.round(8*IW.femaleIW.value)
 				}
+
+<!--BMI-->
+		function BodyMassIndex()
+		{
+			BMI.result.value = Math.round(((BMI.firstValue.value/BMI.secondValue.value)/BMI.secondValue.value)*10000);
+			BMI.idealweight.value = Math.round(BMI.secondValue.value*BMI.secondValue.value*22/10000);
+		}
 			</script>
 
 <body>
@@ -127,6 +135,28 @@
 	</form>
 </div>
 
+
+<!--BMI-->
+<div class="box29">
+	<!--見出し-->
+	<div class="box-title">BMI:Body Mass Index</div>
+	<!--計算式-->
+	<p class="center">BMI = 体重 / 身長<sup>2</sup></p>
+	<!--入力項目-->
+	<form name="BMI">
+	<p style="border: 1px dotted #4169e1; padding: 10px; border-radius: 0px; margin: 0em 1em; background: ##000000;">
+		<span>・体重</span><input type="text" name="firstValue" size="5" value=0> kg<br>
+		<span>・身長</span><input type="text" name="secondValue" size="5" value=0> cm<br>
+	</p>
+	<!--計算ボタン-->
+	<p class="right" style="margin-top:-48px; margin-bottom:15px"><INPUT type="button" name="buttoncalc" onClick="BodyMassIndex()" value="計算"></p>
+	<!--結果-->
+	<p align="center" style="background-color: #ffffff; padding: 7px;margin: 0em 10em">
+	BMI：<input type="text" name="result" size="5" value=0>kg/m<sup>2</sup><br>
+	理想体重：<input type="text" name="idealweight" size="5" value=0>kg
+	</p> <br>
+	</form>
+</div>
 
 						</body>
 					</html>
